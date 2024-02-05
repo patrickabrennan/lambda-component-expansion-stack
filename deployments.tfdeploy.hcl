@@ -8,7 +8,7 @@ identity_token "aws" {
 deployment "development" {
   variables = {
     regions             = ["us-east-1"]
-    role_arn            = "arn:aws:iam::285942769742:role/tfc-workload-identity-patrick.brennan"
+    role_arn            = "arn:aws:iam::285942769742:oidc-provider/app.terraform.io"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags      = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
@@ -17,7 +17,7 @@ deployment "development" {
 deployment "production" {
   variables = {
     regions             = ["us-east-1", "us-west-1"]
-    role_arn             = "arn:aws:iam::285942769742:role/tfc-workload-identity-patrick.brennan"
+    role_arn             = "arn:aws:iam::285942769742:oidc-provider/app.terraform.io"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags      = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
