@@ -54,3 +54,11 @@ deployment "production" {
   }
 }
 
+deployment "DV" {
+  variables = {
+    regions             = ["us-west-2"]
+    role_arn            = "arn:aws:iam::285942769742:role/tfc-workload-identity"
+    identity_token_file = identity_token.aws.jwt_filename
+    default_tags      = { stacks-preview-example = "lambda-component-expansion-stack" }
+  }
+}
