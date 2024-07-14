@@ -6,7 +6,7 @@ identity_token "aws" {
 }
 
 deployment "development" {
-  variables = {
+  inputs = {
     regions             = ["us-east-1"]
     role_arn            = "arn:aws:iam::285942769742:role/tfc-workload-identity"
     identity_token_file = identity_token.aws.jwt_filename
@@ -15,7 +15,7 @@ deployment "development" {
 }
 
 deployment "production" {
-  variables = {
+  inputs = {
     regions             = ["us-east-1", "us-west-1"]
     role_arn            = "arn:aws:iam::285942769742:role/tfc-workload-identity"
     identity_token_file = identity_token.aws.jwt_filename
